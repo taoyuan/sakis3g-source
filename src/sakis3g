@@ -108,7 +108,7 @@ need_arg() {
 			;;
 		PPPD_OPTIONS)
 			# Options passed to pppd when called directly
-			export PPPD_OPTIONS="modem crtscts -detach defaultroute dump noipdefault usepeerdns usehostname ktune logfd 2 noauth name sakis3g lock maxfail 3"
+			export PPPD_OPTIONS="modem crtscts -detach defaultroute dump noipdefault persistent usepeerdns usehostname ktune logfd 2 noauth name sakis3g lock maxfail 3"
 			;;
 		PPPD_PEERS)
 			# Directory where pppd keeps its peers
@@ -5755,7 +5755,7 @@ endl
 	debug "Config file that will be used is: \"%s\".\n" "${CONNECTION_CONF}"
 	debug show_file "${CONNECTION_CONF}"
 	pppdoptions="${PPPD_OPTIONS}"
-	[ "a${pppdoptions}" = "a" ] && pppdoptions="modem crtscts -detach defaultroute dump noipdefault usepeerdns usehostname ktune logfd 2 noauth name sakis3g lock maxfail 3"
+	[ "a${pppdoptions}" = "a" ] && pppdoptions="modem crtscts -detach defaultroute dump noipdefault persistent usepeerdns usehostname ktune logfd 2 noauth name sakis3g lock maxfail 3"
 	if [ "a${PPPD_PEERS}" != "a" ]; then
 		if [ -d "${PPPD_PEERS}" ]; then
 			if [ -f "${PPPD_PEERS}/sakis3g" ]; then
